@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../lib/vue.js"></script>
+</head>
+<body>
+
+    <div class="app">
+        <my-com></my-com>
+        <mycom2></mycom2>
+    </div>
+
+    <!-- 在 被控制的 #app 外面,使用 template 元素,定义组件的HTML模板结构  -->
+    <template id="tpl">
+        <div>
+            <h4>我是 Vue 组件</h4>
+            <mycom1></mycom1> 
+        </div>
+    </template>
+    
+
+    <script>
+
+        Vue.component('myCom',{
+            template: '#tpl',
+            components: {
+                'mycom1': {
+                    template: '<h5>我也是 Vue组件</h5>'
+                }
+            }
+        })
+
+        var vm = new Vue({
+            el: '.app',
+            data: {
+
+            },
+            methods: {
+
+            },
+            components: {
+                'mycom2': {
+                    template: '<h6>我也是 Vue组件</h6>'
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../lib/vue.js"></script>
+</head>
+<body>
+
+    <div class="app">
+        <mycom :parentmsg="age"></mycom>
+    </div>
+    
+    <script>
+        var vm = new Vue({
+            el: '.app',
+            data: {
+                age: 100
+            },
+            components:{
+                'mycom': {
+                    template: '<h1 @click="change">这是子组件 {{ parentmsg }}</h1>',
+                    data(){
+                        return {}
+                    },
+                    props: ['parentmsg'],
+                    methods: {
+                        change() {
+                            console.log(this.parentmsg);
+                            // vuejs2.0中，任何试图在组件内修改通过props传入的父组件数据都被认为是anti-pattern的
+                            // this.parentmsg = '被修改了'
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
