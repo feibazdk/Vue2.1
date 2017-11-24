@@ -8,6 +8,11 @@ Vue.use(VueRouter);
 // 1.3 导入自己的 router.js路由模块
 import router from './router.js'
 
+// 1.1 导入 路由的包
+import VueResource from 'vue-resource';
+// 1.2 安装路由
+Vue.use(VueResource);
+
 
 // 导入项目根组件
 import App from './App.vue';
