@@ -44,5 +44,6 @@
 <style scoped>
     .app-container{
         padding-top: 40px;
+        background-color: #fff;
     }
 </style>

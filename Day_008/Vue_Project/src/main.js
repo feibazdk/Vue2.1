@@ -16,6 +16,7 @@ Vue.use(VueResource);
 
 // 导入项目根组件
 import App from './App.vue';
+import './lib/style.css'
 
 // 按需导入 Miut-ui 中的组件
 import { Header, Swipe, SwipeItem } from 'mint-ui';
