@@ -10,6 +10,17 @@
                 </div>
             </div>
         </div>
+
+        <!-- 图片列表区域 -->
+        <ul class="photo-list">
+            <router-link v-for="item in list" :key="item.id" :to="'/home/photoinfo/' + item.id" tag="li">
+                <img v-lazy="item.img_url">
+                <div class="info">
+                <h1 class="info-title">{{ item.title }}</h1>
+                <div class="info-body">{{ item.zhaiyao }}</div>
+                </div>
+            </router-link>
+        </ul>
     </div>
 </template>
 
@@ -25,6 +36,8 @@
         },
         created(){
             this.getAllCategory();
+            // 默认进入页面，就主动请求 所有图片列表的数据
+            this.getPhotoListByCateId(0);
         },
         mounted(){
             // 当 组件中的DOM结构被渲染好并放到页面中后，会执行这个 钩子函数
@@ -41,6 +54,14 @@
                         // 手动拼接出一个最完整的 分类列表
                         result.body.message.unshift({ title: "全部", id: 0 });
                         this.cates = result.body.message;
+                    }
+                });
+            },
+            getPhotoListByCateId(cateId) {
+                // 根据 分类Id，获取图片列表
+                this.$http.get("api/getimages/" + cateId).then(result => {
+                    if (result.body.status === 0) {
+                        this.list = result.body.message;
                     }
                 });
             }
