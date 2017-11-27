@@ -7,6 +7,7 @@ import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
 import SearchContainer from './components/tabbar/SearchContainer.vue'
 import NewsList from './components/news/NewsList.vue'
 import Newsinfo from './components/news/Newsinfo.vue'
+import PhotoList from './components/photos/PhotoList.vue'
 
 
 var router = new VueRouter({
@@ -18,7 +19,8 @@ var router = new VueRouter({
         { path: '/shopcar', component: ShopcarContainer },
         { path: '/search', component: SearchContainer },
         { path: '/home/newslist', component: NewsList },
-        { path: '/home/newsinfo/:id', component: Newsinfo }
+        { path: '/home/newsinfo/:id', component: Newsinfo },
+        { path: '/home/photolist', component: PhotoList }
     ],
     // 覆盖默认路由高亮的类
     linkActiveClass: 'mui-active'
