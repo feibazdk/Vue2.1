@@ -40,10 +40,14 @@ import MintUI from 'mint-ui'
 Vue.use(MintUI)
 import 'mint-ui/lib/style.css'
 
+// 导入缩略图放大组件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
 // 导入 mui 文件
 import './lib/mui/css/mui.css';
 import './lib/mui/css/icons-extra.css';
+
 
 
 var vm = new Vue({
