@@ -85,12 +85,13 @@
                 // 其中： this.$route 是路由【参数对象】，所有路由中的参数， params, query 都属于它
                 // 其中： this.$router 是一个路由【导航对象】，用它 可以方便的 使用 JS 代码，实现路由的 前进、后退、 跳转到新的 URL 地址
 
-                console.log(this);
+                // console.log(this);
                 // 1. 最简单的
                 // this.$router.push("/home/goodsinfo/" + id);
                 // 2. 传递对象
                 // this.$router.push({ path: "/home/goodsinfo/" + id });
                 // 3. 传递命名的路由
+                this.$router.push({ name: "goodsinfo", params: { id } });
                 this.$router.push({ name: "goodsinfo", params: { id } });
             }
         }
