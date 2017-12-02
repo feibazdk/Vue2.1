@@ -1,12 +1,13 @@
 <template>
     <div>
         <!-- 轮播图区域 -->
-        <mt-swipe :auto="4000">
+        <!-- <mt-swipe :auto="4000"> -->
             <!-- 在组件中，使用 v-for 循环的话，一定要使用 key -->
-            <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
+            <!-- <mt-swipe-item v-for="item in lunbotuList" :key="item.url">
                 <img :src="item.img" alt="">
             </mt-swipe-item>
-        </mt-swipe>
+        </mt-swipe> -->
+        <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
 
         <!-- 九宫格 到 6宫格 的改造工程 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -51,6 +52,7 @@
 </template>
 
 <script>
+    import swiper from "../subcomponents/swiper.vue";
     export default {
         data () {
             return {
@@ -74,6 +76,9 @@
                     }
                 })
             }
+        },
+        components: {
+            swiper
         }
     }
 </script>
