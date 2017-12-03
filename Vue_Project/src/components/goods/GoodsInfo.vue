@@ -24,7 +24,7 @@
                 <p class="price">
                     市场价：<del>￥{{ goodsinfo.market_price }}</del>&nbsp;&nbsp;销售价：<span class="now_price">￥{{ goodsinfo.sell_price }}</span>
                 </p>
-                <p>购买数量：<numbox></numbox></p>
+                <p>购买数量：<numbox @getcount="getSelectedCount" :max="goodsinfo.stock_quantity"></numbox></p>
                 <p>
                     <mt-button type="primary" size="small">立即购买</mt-button>
                     <mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
@@ -136,6 +136,11 @@
             beforeEnter(el) {
                 el.style.transform = "translate(0, 0)";
             },
+            getSelectedCount(count){
+                // 当子组件把 选中的数量传递给父组件的时候，把选中的值保存到 data 上
+                this.selectedCount = count;
+                console.log("父组件拿到的数量值为： " + this.selectedCount);
+            }
         },
         components: {
             swiper,
